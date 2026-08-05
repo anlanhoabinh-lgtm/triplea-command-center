@@ -1,4 +1,5 @@
 import { Command } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { commandActions } from "@/lib/triplea-data";
 
 export function CommandCenter() {
@@ -15,20 +16,21 @@ export function CommandCenter() {
         {commandActions.map((action) => {
           const Icon = action.icon;
           return (
-            <button
+            <Link
               key={action.label}
-              type="button"
-              className="glass-tile group flex flex-col items-start gap-2 p-3 text-left transition-all hover:border-primary/35 hover:bg-primary/10"
+              to={action.to}
+              className="glass-tile group flex flex-col items-start gap-2 p-3 text-left transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/35 hover:bg-primary/10"
             >
               <Icon
                 className="size-4 text-muted-foreground transition-colors group-hover:text-primary"
                 aria-hidden
               />
               <span className="text-xs font-medium">{action.label}</span>
-            </button>
+            </Link>
           );
         })}
       </div>
+
     </section>
   );
 }
