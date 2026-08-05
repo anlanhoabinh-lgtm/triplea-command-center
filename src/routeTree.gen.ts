@@ -10,33 +10,154 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AutomationsRouteImport } from './routes/automations'
+import { Route as BrowserRouteImport } from './routes/browser'
+import { Route as BuilderRouteImport } from './routes/builder'
+import { Route as ChatRouteImport } from './routes/chat'
+import { Route as IntegrationsRouteImport } from './routes/integrations'
+import { Route as LeadsRouteImport } from './routes/leads'
+import { Route as MemoryRouteImport } from './routes/memory'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as VoiceRouteImport } from './routes/voice'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AutomationsRoute = AutomationsRouteImport.update({
+  id: '/automations',
+  path: '/automations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrowserRoute = BrowserRouteImport.update({
+  id: '/browser',
+  path: '/browser',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuilderRoute = BuilderRouteImport.update({
+  id: '/builder',
+  path: '/builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChatRoute = ChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegrationsRoute = IntegrationsRouteImport.update({
+  id: '/integrations',
+  path: '/integrations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeadsRoute = LeadsRouteImport.update({
+  id: '/leads',
+  path: '/leads',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MemoryRoute = MemoryRouteImport.update({
+  id: '/memory',
+  path: '/memory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VoiceRoute = VoiceRouteImport.update({
+  id: '/voice',
+  path: '/voice',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/automations': typeof AutomationsRoute
+  '/browser': typeof BrowserRoute
+  '/builder': typeof BuilderRoute
+  '/chat': typeof ChatRoute
+  '/integrations': typeof IntegrationsRoute
+  '/leads': typeof LeadsRoute
+  '/memory': typeof MemoryRoute
+  '/projects': typeof ProjectsRoute
+  '/voice': typeof VoiceRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/automations': typeof AutomationsRoute
+  '/browser': typeof BrowserRoute
+  '/builder': typeof BuilderRoute
+  '/chat': typeof ChatRoute
+  '/integrations': typeof IntegrationsRoute
+  '/leads': typeof LeadsRoute
+  '/memory': typeof MemoryRoute
+  '/projects': typeof ProjectsRoute
+  '/voice': typeof VoiceRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/automations': typeof AutomationsRoute
+  '/browser': typeof BrowserRoute
+  '/builder': typeof BuilderRoute
+  '/chat': typeof ChatRoute
+  '/integrations': typeof IntegrationsRoute
+  '/leads': typeof LeadsRoute
+  '/memory': typeof MemoryRoute
+  '/projects': typeof ProjectsRoute
+  '/voice': typeof VoiceRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/automations'
+    | '/browser'
+    | '/builder'
+    | '/chat'
+    | '/integrations'
+    | '/leads'
+    | '/memory'
+    | '/projects'
+    | '/voice'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/automations'
+    | '/browser'
+    | '/builder'
+    | '/chat'
+    | '/integrations'
+    | '/leads'
+    | '/memory'
+    | '/projects'
+    | '/voice'
+  id:
+    | '__root__'
+    | '/'
+    | '/automations'
+    | '/browser'
+    | '/builder'
+    | '/chat'
+    | '/integrations'
+    | '/leads'
+    | '/memory'
+    | '/projects'
+    | '/voice'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AutomationsRoute: typeof AutomationsRoute
+  BrowserRoute: typeof BrowserRoute
+  BuilderRoute: typeof BuilderRoute
+  ChatRoute: typeof ChatRoute
+  IntegrationsRoute: typeof IntegrationsRoute
+  LeadsRoute: typeof LeadsRoute
+  MemoryRoute: typeof MemoryRoute
+  ProjectsRoute: typeof ProjectsRoute
+  VoiceRoute: typeof VoiceRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +169,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/automations': {
+      id: '/automations'
+      path: '/automations'
+      fullPath: '/automations'
+      preLoaderRoute: typeof AutomationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/browser': {
+      id: '/browser'
+      path: '/browser'
+      fullPath: '/browser'
+      preLoaderRoute: typeof BrowserRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/builder': {
+      id: '/builder'
+      path: '/builder'
+      fullPath: '/builder'
+      preLoaderRoute: typeof BuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chat': {
+      id: '/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof ChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integrations': {
+      id: '/integrations'
+      path: '/integrations'
+      fullPath: '/integrations'
+      preLoaderRoute: typeof IntegrationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leads': {
+      id: '/leads'
+      path: '/leads'
+      fullPath: '/leads'
+      preLoaderRoute: typeof LeadsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/memory': {
+      id: '/memory'
+      path: '/memory'
+      fullPath: '/memory'
+      preLoaderRoute: typeof MemoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voice': {
+      id: '/voice'
+      path: '/voice'
+      fullPath: '/voice'
+      preLoaderRoute: typeof VoiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AutomationsRoute: AutomationsRoute,
+  BrowserRoute: BrowserRoute,
+  BuilderRoute: BuilderRoute,
+  ChatRoute: ChatRoute,
+  IntegrationsRoute: IntegrationsRoute,
+  LeadsRoute: LeadsRoute,
+  MemoryRoute: MemoryRoute,
+  ProjectsRoute: ProjectsRoute,
+  VoiceRoute: VoiceRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

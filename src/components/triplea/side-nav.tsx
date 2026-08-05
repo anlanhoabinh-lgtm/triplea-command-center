@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { navItems } from "@/lib/triplea-data";
 
 export function SideNav() {
-  const [active, setActive] = useState("Home");
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   return (
     <nav
@@ -16,18 +16,17 @@ export function SideNav() {
       <ul className="flex gap-1 overflow-x-auto scroll-slim lg:flex-col lg:overflow-visible">
         {navItems.map((item) => {
           const Icon = item.icon;
-          const isActive = active === item.label;
+          const isActive = item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
           return (
             <li key={item.label} className="shrink-0 lg:w-full">
-              <button
-                type="button"
-                onClick={() => setActive(item.label)}
+              <Link
+                to={item.to}
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
-                  "group relative flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
+                  "group relative flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
                   isActive
                     ? "bg-primary/12 text-foreground glow-ring"
-                    : "text-muted-foreground hover:bg-foreground/6 hover:text-foreground",
+                    : "text-muted-foreground hover:translate-x-0.5 hover:bg-foreground/6 hover:text-foreground",
                 )}
               >
                 <Icon
@@ -43,7 +42,7 @@ export function SideNav() {
                     {item.badge}
                   </span>
                 ) : null}
-              </button>
+              </Link>
             </li>
           );
         })}
